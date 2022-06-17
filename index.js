@@ -16,7 +16,12 @@ dotenv.config();
 // body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+    origin: ["https://harmonious-kataifi-55a9d2.netlify.app"],
+    methods: ["GET", "POST", "DELETE"],
+    credentials: true,
+    origin: true
+}));
 
 app.use('/', Routes);
 
