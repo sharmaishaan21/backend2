@@ -7,6 +7,7 @@ import Routes from './routes/route.js';
 import Connection from './database/db.js';
 
 const app = express();
+app.use(cors());
 
 
 dotenv.config();
@@ -16,12 +17,6 @@ dotenv.config();
 // body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors({
-    origin: ["https://harmonious-kataifi-55a9d2.netlify.app"],
-    methods: ["GET", "POST", "DELETE"],
-    credentials: true,
-    origin: true
-}));
 
 app.use('/', Routes);
 
